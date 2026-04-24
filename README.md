@@ -1,0 +1,1 @@
+![UML ábra](uml/SorokAzAsztalon.png)
