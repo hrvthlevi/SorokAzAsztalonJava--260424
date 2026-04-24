@@ -17,22 +17,31 @@ public class Asztal {
             this.sorok[db++] = sor;
         }
     }
-    
-    //annyi "o" karakter adunk hozza ahany sorunk van, a maradek helyet feltoltjuk szokozokkel, hogy fix szelessegu legyen(max 4)
-    public String getAsztalRajz(){
-    String rajz = "|";
-  
-    for (int i = 0; i < db; i++) {
-        rajz += "o";
+
+    //felso sor 0. es 1. hely
+    //also sor 2. es 3. hely
+    public String getAsztalRajz() {
+        String rajz = "|";
+
+        for (int i = 0; i < 2; i++) {
+            rajz += (i < db) ? "o" : " ";
+            if (i == 0) rajz += " ";
+        }
+        rajz += "|\n|";
+        for (int i = 2; i < 4; i++) {
+            rajz += (i < db) ? "o" : " ";
+            if (i == 2) rajz += " ";
+        }
+
+        rajz += "|\n-----\n";
+        
+        for (int i = 0; i < db; i++) {
+        Sor s = sorok[i];
+        rajz += s.getAlkoholFok() + "% - " + s.getMennyiseg() + "ml - " + 
+               (s.isVilagos() ? "világos" : "barna") + "\n";
     }
-    
-    for (int i = db; i < 4; i++) {
-        rajz += " ";
+        return rajz;
     }
-    
-    rajz += "|\n-----";
-    return rajz;
-}
 
     @Override
     public int hashCode() {
