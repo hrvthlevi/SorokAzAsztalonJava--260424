@@ -25,22 +25,30 @@ public class Asztal {
 
         for (int i = 0; i < 2; i++) {
             rajz += (i < db) ? "o" : " ";
-            if (i == 0) rajz += " ";
+            if (i == 0) {
+                rajz += " ";
+            }
         }
         rajz += "|\n|";
         for (int i = 2; i < 4; i++) {
             rajz += (i < db) ? "o" : " ";
-            if (i == 2) rajz += " ";
+            if (i == 2) {
+                rajz += " ";
+            }
         }
 
         rajz += "|\n-----\n";
-        
+
         for (int i = 0; i < db; i++) {
-        Sor s = sorok[i];
-        rajz += s.getAlkoholFok() + "% - " + s.getMennyiseg() + "ml - " + 
-               (s.isVilagos() ? "világos" : "barna") + "\n";
-    }
+            Sor s = sorok[i];
+            rajz += s.getAlkoholFok() + "% - " + s.getMennyiseg() + "ml - "
+                    + (s.isVilagos() ? "világos" : "barna") + "\n";
+        }
         return rajz;
+    }
+
+    public int getDb() {
+        return db;
     }
 
     @Override
